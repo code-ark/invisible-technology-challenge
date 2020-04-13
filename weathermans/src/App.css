@@ -1,0 +1,24 @@
+
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  margin: 1 auto;
+}
+
+.submission-field {
+  width: auto;
+}
+.weather-output {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3em;
+}
+.form-space {
+  padding: 4px;
+}
