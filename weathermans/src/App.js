@@ -20,13 +20,11 @@ function App() {
       .then((res) => res.json())
       .then((data) => data)
 
-    if (city || zipcode) {
-      setWeather({
-        city: apiData.name,
-        temperature: Math.round((apiData.main.temp * 9) / 5 - 459.67),
-        time: timeAPI.formatted,
-      })
-    }
+    setWeather({
+      city: apiData.name,
+      temperature: Math.round((apiData.main.temp * 9) / 5 - 459.67),
+      time: timeAPI.formatted,
+    })
   }
 
   return (
@@ -37,7 +35,6 @@ function App() {
         city={weather.city}
         temperature={weather.temperature}
         time={weather.time}
-        error={weather.error}
       />
     </div>
   )
