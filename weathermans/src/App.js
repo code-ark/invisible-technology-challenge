@@ -9,6 +9,7 @@ function App() {
     e.preventDefault()
     const city = e.target.elements.city.value
     const zipcode = e.target.elements.zipcode.value
+    // fetching the city and zipcode data from openweathermap api
     const apiData = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&zip=${zipcode}&&APPID=f11458201179074467b6e643c81ecbd1`
     )
@@ -19,6 +20,7 @@ function App() {
       })
 
     let timeAPI;
+    // conditional for invalid input
     if (apiData.message === "city not found") {
       setWeather({
         city: "",
@@ -27,6 +29,7 @@ function App() {
         error: "please input valid city or zipcode",
       })
     } else {
+      // fetching from a second api to get time zone from longitude & latitude coords recieved from openweathermap data
       timeAPI = await fetch(
         `http://api.timezonedb.com/v2.1/get-time-zone?key=T9OIOFUI7OJG&format=json&by=position&lat=${apiData.coord.lat}&lng=${apiData.coord.lon}`
       )
@@ -37,6 +40,7 @@ function App() {
         })
       setWeather({
         city: apiData.name,
+        // converting from kelvin to farenheight
         temperature: Math.round((apiData.main.temp * 9) / 5 - 459.67),
         time: timeAPI.formatted,
         error: "",
