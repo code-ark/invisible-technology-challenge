@@ -8,3 +8,4 @@
  - styling would be nice. it looks quite ugly.
 
  INSTRUCTIONS: fork & clone it to your machine, cd into weathermans npm install the dependencies and npm start to get it running.
+ 

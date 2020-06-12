@@ -7,11 +7,11 @@ function App() {
   const [weather, setWeather] = useState({})
   async function fetchData(e) {
     e.preventDefault()
-    const city = e.target.elements.city.value
-    const zipcode = e.target.elements.zipcode.value
+    const input = e.target.elements.input.value
+    // const zipcode = e.target.elements.zipcode.value
     // fetching the city and zipcode data from openweathermap api
     const apiData = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&zip=${zipcode}&&APPID=f11458201179074467b6e643c81ecbd1`
+      `https://api.openweathermap.org/data/2.5/weather?q=${input}&zip=${input}&&APPID=f11458201179074467b6e643c81ecbd1`
     )
       .then((res) => res.json())
       .then((data) => data)
@@ -50,7 +50,7 @@ function App() {
 
   return (
     <div className="page">
-      <h1>Weather Service</h1>
+      <h1 className="localweather">Local Weather</h1>
       <Form getWeather={fetchData} />
       <Weather
         city={weather.city}

@@ -3,9 +3,10 @@ import React from "react"
 const Weather = ({ city, temperature, time, error }) => {
   return (
     <div className="weather-output">
-      {city && <p>Location: {city}</p>}
-      {time && <p>Date & Time: {time}</p>}
-      {temperature && <p>temperature: {temperature}°F</p>}
+      <div className="city-name">{city && <p>{city}</p>}</div>
+      <div className="date-time">{time && <p>Date & Time: {time}</p>}</div>
+      <div className="temp"> {temperature && <p>{temperature}°F</p>}</div>
+     
   {error && <p>{error}</p>}
     </div>
   )

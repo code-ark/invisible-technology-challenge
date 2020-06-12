@@ -1,12 +1,12 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
 
 const Form = (props) => {
   return (
     <form onSubmit={props.getWeather} className='submission-field'>
-      <input type="text" name="city" placeholder="city"  />
-      <label className="form-space">or</label> 
-      <input type="text" name="zipcode" placeholder="zipcode" />
-      <button>Search</button>
+      <input type="text" name="input" placeholder="city or zipcode" className="input"  />
+      <label className="form-space"></label> 
+      <button className="button">Search</button>
     </form>
   );
 };
